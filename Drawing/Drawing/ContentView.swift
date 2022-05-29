@@ -7,38 +7,55 @@
 
 import SwiftUI
 
+struct CheckerBoard: Shape {
+    var rows: Int
+    var columns: Int
+    
+    var animatableData: AnimatablePair<Double, Double> {
+        get {
+            AnimatablePair(Double(rows), Double(columns))
+        }
+        
+        set {
+            rows = Int(newValue.first)
+            columns = Int(newValue.second)
+        }
+    }
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        let rowSize = rect.height / Double(rows)
+        let columnSize = rect.width / Double(columns)
+        
+        for row in 0..<rows {
+            for col in 0..<columns {
+                if (row + col).isMultiple(of: 2) {
+                    let startX = columnSize * Double(col)
+                    let startY = rowSize * Double(row)
+                    
+                    let rect = CGRect(x: startX, y: startY, width: columnSize, height: rowSize)
+                    path.addRect(rect)
+                }
+            }
+        }
+        return path
+    }
+}
+
 struct ContentView: View {
     
-    @State private var amount = 0.0
+    @State private var rows = 4
+    @State private var columns = 4
     
     var body: some View {
-        VStack {
-            ZStack {
-                Circle()
-                    .fill(.red)
-                    .frame(width: 200 * amount)
-                    .offset(x: -50, y: -80)
-                    .blendMode(.screen)
-                
-                Circle()
-                    .fill(.green)
-                    .frame(width: 200 * amount)
-                    .offset(x: 50, y: -80)
-                    .blendMode(.screen)
-                
-                Circle()
-                    .fill(.blue)
-                    .frame(width: 200 * amount)
-                    .blendMode(.screen)
+        CheckerBoard(rows: rows, columns: columns)
+            .onTapGesture {
+                withAnimation(.linear(duration: 3)) {
+                    rows = 8
+                    columns = 16
+                }
             }
-            .frame(width: 300, height: 300)
-            
-            Slider(value: $amount)
-                .padding()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black)
-        .ignoresSafeArea()
     }
 }
 
