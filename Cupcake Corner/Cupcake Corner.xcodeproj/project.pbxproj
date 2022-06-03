@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF5838ED284A80560022FB59 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5838EC284A80560022FB59 /* Order.swift */; };
 		AF5838EF284A86AA0022FB59 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5838EE284A86AA0022FB59 /* AddressView.swift */; };
+		AF5838F1284A88C10022FB59 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5838F0284A88C10022FB59 /* CheckoutView.swift */; };
 		AFF3943628494204003B9010 /* Cupcake_CornerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF3943528494204003B9010 /* Cupcake_CornerApp.swift */; };
 		AFF3943828494204003B9010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF3943728494204003B9010 /* ContentView.swift */; };
 		AFF3943A28494209003B9010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFF3943928494209003B9010 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		AF5838EC284A80560022FB59 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		AF5838EE284A86AA0022FB59 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		AF5838F0284A88C10022FB59 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		AFF3943228494204003B9010 /* Cupcake Corner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cupcake Corner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF3943528494204003B9010 /* Cupcake_CornerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cupcake_CornerApp.swift; sourceTree = "<group>"; };
 		AFF3943728494204003B9010 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				AFF3943B28494209003B9010 /* Preview Content */,
 				AF5838EC284A80560022FB59 /* Order.swift */,
 				AF5838EE284A86AA0022FB59 /* AddressView.swift */,
+				AF5838F0284A88C10022FB59 /* CheckoutView.swift */,
 			);
 			path = "Cupcake Corner";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				AF5838ED284A80560022FB59 /* Order.swift in Sources */,
 				AF5838EF284A86AA0022FB59 /* AddressView.swift in Sources */,
+				AF5838F1284A88C10022FB59 /* CheckoutView.swift in Sources */,
 				AFF3943828494204003B9010 /* ContentView.swift in Sources */,
 				AFF3943628494204003B9010 /* Cupcake_CornerApp.swift in Sources */,
 			);
