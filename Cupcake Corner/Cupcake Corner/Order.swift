@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-class Orders: ObservableObject {
-    @Published var order = Order()
+class Order: ObservableObject {
+    @Published var item = Item()
 }
 
-struct Order: Codable {
+struct Item: Codable {
     
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
