@@ -34,11 +34,29 @@ struct ContentView: View {
     @AppStorage("notes") private var notes = ""
     @State private var rememberMe = false
     
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var students: FetchedResults<Student>
+    
     var body: some View {
-        NavigationView {
-            TextEditor(text: $notes)
-                .navigationTitle("Notes")
-                .padding()
+        VStack {
+            List(students) { student in
+                Text(student.name ?? "Unknown")
+            }
+            
+            Button("Add") {
+                let firstNames = ["Ginny", "Harry", "Hermoine", "Luna", "Ron"]
+                let lastNames = ["Ranger", "Potter", "Wesley", "Master"]
+                
+                let chosenFirstname = firstNames.randomElement()!
+                let chosenLastname = lastNames.randomElement()!
+                
+                let student = Student(context: moc)
+                student.id = UUID()
+                student.name = "\(chosenFirstname)  \(chosenLastname)"
+                
+                try? moc.save()
+                
+            }
         }
     }
 }
