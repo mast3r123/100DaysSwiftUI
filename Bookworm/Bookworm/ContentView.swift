@@ -7,56 +7,29 @@
 
 import SwiftUI
 
-struct PushButton: View {
-    let title: String
-    
-    @Binding var isOn: Bool
-    
-    var onColors = [Color.red, Color.yellow]
-    var offColors = [Color(white: 0.6), Color(white: 0.4)]
-    
-    var body: some View {
-        Button(title) {
-            isOn.toggle()
-        }
-        .padding()
-        .background(
-            LinearGradient(colors: isOn ? onColors : offColors, startPoint: .top, endPoint: .bottom)
-        )
-        .foregroundColor(.white)
-        .clipShape(Capsule())
-        .shadow(radius: isOn ? 0 : 5)
-    }
-}
-
 struct ContentView: View {
     
-    @AppStorage("notes") private var notes = ""
-    @State private var rememberMe = false
-    
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var students: FetchedResults<Student>
+    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book>
+    
+    @State private var showingAddScreen = false
     
     var body: some View {
-        VStack {
-            List(students) { student in
-                Text(student.name ?? "Unknown")
-            }
-            
-            Button("Add") {
-                let firstNames = ["Ginny", "Harry", "Hermoine", "Luna", "Ron"]
-                let lastNames = ["Ranger", "Potter", "Wesley", "Master"]
-                
-                let chosenFirstname = firstNames.randomElement()!
-                let chosenLastname = lastNames.randomElement()!
-                
-                let student = Student(context: moc)
-                student.id = UUID()
-                student.name = "\(chosenFirstname)  \(chosenLastname)"
-                
-                try? moc.save()
-                
-            }
+        NavigationView {
+            Text("Count: \(books.count)")
+                .navigationTitle("Bookworm")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            showingAddScreen.toggle()
+                        } label: {
+                            Label("Add book", systemImage: "plus")
+                        }
+                    }
+                }
+                .sheet(isPresented: $showingAddScreen) {
+                    AddBookView()
+                }
         }
     }
 }
