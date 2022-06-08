@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF03654528511B4B00449354 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF03654428511B4B00449354 /* DetailView.swift */; };
 		AF3CA7DE284E583800C80F0B /* BookwormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3CA7DD284E583800C80F0B /* BookwormApp.swift */; };
 		AF3CA7E0284E583800C80F0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3CA7DF284E583800C80F0B /* ContentView.swift */; };
 		AF3CA7E2284E583900C80F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3CA7E1284E583900C80F0B /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF03654428511B4B00449354 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AF3CA7DA284E583800C80F0B /* Bookworm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookworm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3CA7DD284E583800C80F0B /* BookwormApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookwormApp.swift; sourceTree = "<group>"; };
 		AF3CA7DF284E583800C80F0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				AFF96417284FDCE9003735FA /* AddBookView.swift */,
 				AFF9641B284FEAB2003735FA /* EmojiRatingView.swift */,
 				AFF96419284FE7FE003735FA /* RatingView.swift */,
+				AF03654428511B4B00449354 /* DetailView.swift */,
 			);
 			path = Bookworm;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3CA7E0284E583800C80F0B /* ContentView.swift in Sources */,
+				AF03654528511B4B00449354 /* DetailView.swift in Sources */,
 				AF3CA7EF284E8B4300C80F0B /* DataController.swift in Sources */,
 				AFF9641C284FEAB2003735FA /* EmojiRatingView.swift in Sources */,
 				AF3CA7ED284E8AEA00C80F0B /* Bookworm.xcdatamodeld in Sources */,
