@@ -36,11 +36,22 @@ struct DetailView: View {
                 .font(.title)
                 .foregroundColor(.secondary)
             
+            Text("Review")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+                .padding([.leading, .top, .bottom])
+            
             Text(book.review ?? "No review")
-                .padding()
+                .font(.title2)
+                .padding(.bottom)
             
             RatingView(rating: .constant(Int(book.rating)))
-                .font(.largeTitle)
+                .font(.title2)
+            
+            Text(formatDate(from: book.date ?? Date.now))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding([.trailing, .top])
+            
             
         }
         .navigationTitle(book.title ?? "Unknown book")
@@ -67,5 +78,11 @@ struct DetailView: View {
         moc.delete(book)
         try? moc.save()
         dismiss()
+    }
+    
+    func formatDate(from date: Date) -> String {
+        let formatter1 = DateFormatter()
+        formatter1.dateStyle = .short
+        return formatter1.string(from: date)
     }
 }

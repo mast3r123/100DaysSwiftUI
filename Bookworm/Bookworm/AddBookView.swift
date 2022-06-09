@@ -18,6 +18,9 @@ struct AddBookView: View {
     @State private var genre = ""
     @State private var review = ""
     
+    @State private var showInvalidInputAlert = false
+    @State private var errorMessage = ""
+    
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var body: some View {
@@ -44,21 +47,45 @@ struct AddBookView: View {
                 
                 Section {
                     Button("Save") {
-                        let newBook = Book(context: moc)
-                        newBook.id = UUID()
-                        newBook.title = title
-                        newBook.author = author
-                        newBook.rating = Int16(rating)
-                        newBook.genre = genre
-                        newBook.review = review
-                        
-                        try? moc.save()
-                        dismiss()
+                        if validateInputs() {
+                            let newBook = Book(context: moc)
+                            newBook.id = UUID()
+                            newBook.title = title
+                            newBook.author = author
+                            newBook.rating = Int16(rating)
+                            newBook.genre = genre
+                            newBook.review = review
+                            newBook.date = Date.now
+                            try? moc.save()
+                            dismiss()
+                        }
                     }
                 }
             }
             .navigationTitle("Add book")
+            .alert("Oops!", isPresented: $showInvalidInputAlert) {
+                Button("Ok") {}
+            } message: {
+                Text(errorMessage)
+            }
         }
+    }
+    
+    func validateInputs() -> Bool {
+        if title.isEmpty {
+            errorMessage = "Please enter a valid title"
+            showInvalidInputAlert.toggle()
+            return false
+        } else if author.isEmpty {
+            errorMessage = "Please enter a valid author"
+            showInvalidInputAlert.toggle()
+            return false
+        } else if genre.isEmpty {
+            errorMessage = "Please select a valid genre"
+            showInvalidInputAlert.toggle()
+            return false
+        }
+        return true
     }
 }
 
