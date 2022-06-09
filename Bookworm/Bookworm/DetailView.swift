@@ -41,7 +41,7 @@ struct DetailView: View {
                 .multilineTextAlignment(.leading)
                 .padding([.leading, .top, .bottom])
             
-            Text(book.review!.isEmpty ? "No review" : book.review!)
+            Text(book.review ?? "No review")
                 .font(.title2)
                 .padding(.bottom)
             
