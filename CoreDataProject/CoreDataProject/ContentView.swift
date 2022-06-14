@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "name < %@", "F")) var ships: FetchedResults<Ships>
+    @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "universe IN %@", ["Aliens", "Firefly", "Star Trek"])) var ships: FetchedResults<Ships>
     
     var body: some View {
         VStack {
