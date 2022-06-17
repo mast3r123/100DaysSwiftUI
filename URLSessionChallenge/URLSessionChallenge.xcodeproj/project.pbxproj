@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF00EEEC285CD92300851154 /* Details.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF00EEEA285CD92300851154 /* Details.xcdatamodeld */; };
+		AF00EEF6285CDC6D00851154 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00EEF5285CDC6D00851154 /* DataController.swift */; };
+		AF00EF13285D057500851154 /* CachedUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00EF0F285D057500851154 /* CachedUser+CoreDataClass.swift */; };
+		AF00EF14285D057500851154 /* CachedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00EF10285D057500851154 /* CachedUser+CoreDataProperties.swift */; };
+		AF00EF15285D057500851154 /* CachedFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00EF11285D057500851154 /* CachedFriend+CoreDataClass.swift */; };
+		AF00EF16285D057500851154 /* CachedFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00EF12285D057500851154 /* CachedFriend+CoreDataProperties.swift */; };
 		AF45D4A1285C080B008310D0 /* URLSessionChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45D4A0285C080B008310D0 /* URLSessionChallengeApp.swift */; };
 		AF45D4A3285C080B008310D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45D4A2285C080B008310D0 /* ContentView.swift */; };
 		AF45D4A5285C080D008310D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF45D4A4285C080D008310D0 /* Assets.xcassets */; };
@@ -17,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF00EEEB285CD92300851154 /* Details.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Details.xcdatamodel; sourceTree = "<group>"; };
+		AF00EEF5285CDC6D00851154 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		AF00EF0F285D057500851154 /* CachedUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AF00EF10285D057500851154 /* CachedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AF00EF11285D057500851154 /* CachedFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AF00EF12285D057500851154 /* CachedFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		AF45D49D285C080B008310D0 /* URLSessionChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLSessionChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF45D4A0285C080B008310D0 /* URLSessionChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionChallengeApp.swift; sourceTree = "<group>"; };
 		AF45D4A2285C080B008310D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +69,10 @@
 		AF45D49F285C080B008310D0 /* URLSessionChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				AF00EF0F285D057500851154 /* CachedUser+CoreDataClass.swift */,
+				AF00EF10285D057500851154 /* CachedUser+CoreDataProperties.swift */,
+				AF00EF11285D057500851154 /* CachedFriend+CoreDataClass.swift */,
+				AF00EF12285D057500851154 /* CachedFriend+CoreDataProperties.swift */,
 				AF45D4A0285C080B008310D0 /* URLSessionChallengeApp.swift */,
 				AF45D4A2285C080B008310D0 /* ContentView.swift */,
 				AF45D4A4285C080D008310D0 /* Assets.xcassets */,
@@ -64,6 +80,8 @@
 				AF45D4AE285C08C2008310D0 /* User.swift */,
 				AF45D4B2285C09CB008310D0 /* Friends.swift */,
 				AF45D4B4285C11A6008310D0 /* DetailView.swift */,
+				AF00EEEA285CD92300851154 /* Details.xcdatamodeld */,
+				AF00EEF5285CDC6D00851154 /* DataController.swift */,
 			);
 			path = URLSessionChallenge;
 			sourceTree = "<group>";
@@ -148,8 +166,14 @@
 			files = (
 				AF45D4A3285C080B008310D0 /* ContentView.swift in Sources */,
 				AF45D4A1285C080B008310D0 /* URLSessionChallengeApp.swift in Sources */,
+				AF00EEF6285CDC6D00851154 /* DataController.swift in Sources */,
 				AF45D4AF285C08C2008310D0 /* User.swift in Sources */,
+				AF00EF13285D057500851154 /* CachedUser+CoreDataClass.swift in Sources */,
+				AF00EF16285D057500851154 /* CachedFriend+CoreDataProperties.swift in Sources */,
 				AF45D4B5285C11A6008310D0 /* DetailView.swift in Sources */,
+				AF00EEEC285CD92300851154 /* Details.xcdatamodeld in Sources */,
+				AF00EF14285D057500851154 /* CachedUser+CoreDataProperties.swift in Sources */,
+				AF00EF15285D057500851154 /* CachedFriend+CoreDataClass.swift in Sources */,
 				AF45D4B3285C09CB008310D0 /* Friends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +377,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AF00EEEA285CD92300851154 /* Details.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF00EEEB285CD92300851154 /* Details.xcdatamodel */,
+			);
+			currentVersion = AF00EEEB285CD92300851154 /* Details.xcdatamodel */;
+			path = Details.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AF45D495285C080B008310D0 /* Project object */;
 }
