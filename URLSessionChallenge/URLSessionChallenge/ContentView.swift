@@ -17,13 +17,12 @@ struct ContentView: View {
                 NavigationLink(destination: DetailView(user: user)) {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
-                            Text("Name: \(user.name)")
+                            Text("\(user.name)")
                                 .fontWeight(.bold)
                             Text(Image(systemName: "circle.fill"))
                             .foregroundColor(user.isActive ? .green : .red)
                             .font(.system(size: 10))
                         }
-                        Text("Company: \(user.company)")
                     }.padding(15)
                 }
             }
