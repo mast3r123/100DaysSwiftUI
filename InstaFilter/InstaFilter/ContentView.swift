@@ -14,7 +14,9 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     @State private var showingPicker = false
     @State private var inputImage: UIImage?
-    @State private var currentFilter = CIFilter.sepiaTone()
+    @State private var processedImage: UIImage?
+    @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
+    @State private var showingFilterSheet = false
     
     let context = CIContext()
     
@@ -44,11 +46,9 @@ struct ContentView: View {
                 
                 HStack {
                     Button("Change Filter") {
-                        
+                        showingFilterSheet = true
                     }
-                    
                     Spacer()
-                    
                     Button("Save", action: saveImage)
                 }
             }
@@ -60,6 +60,16 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingPicker) {
                 ImagePicker(image: $inputImage)
+            }
+            .confirmationDialog("Select a filter", isPresented: $showingFilterSheet) {
+                Button("Crystallize") { setFilter(newFilter: CIFilter.crystallize()) }
+                Button("Edges") { setFilter(newFilter: CIFilter.edges()) }
+                Button("Gaussian Blur") { setFilter(newFilter: CIFilter.gaussianBlur()) }
+                Button("Pixellate") { setFilter(newFilter: CIFilter.pixellate()) }
+                Button("Sepia Tone") { setFilter(newFilter: CIFilter.sepiaTone()) }
+                Button("Unsharp Mask") { setFilter(newFilter: CIFilter.unsharpMask()) }
+                Button("Vignette") { setFilter(newFilter: CIFilter.vignette()) }
+                Button("Cancel", role: .cancel) { }
             }
         }
     }
@@ -75,19 +85,53 @@ struct ContentView: View {
     }
     
     func saveImage() {
+        guard let processedImage = processedImage else {
+            return
+        }
+
+        let imageSaver = ImageSaver()
         
+        
+        imageSaver.successHandler = {
+            print("Success")
+        }
+        
+        imageSaver.errorHandler = {
+            print("Oops \($0.localizedDescription)")
+        }
+        
+        imageSaver.writeToPhotoAlbum(image: processedImage)
     }
     
     func applyProcessing() {
-        currentFilter.intensity = Float(filterIntensity)
+        
+        let inputKeys = currentFilter.inputKeys
+        
+        if inputKeys.contains(kCIInputIntensityKey) {
+            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
+        }
+        
+        if inputKeys.contains(kCIInputRadiusKey) {
+            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+        }
+
+        if inputKeys.contains(kCIInputScaleKey) {
+            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
+        }
+
         
         guard let outputImage = currentFilter.outputImage else { return }
         if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
             let uiImage = UIImage(cgImage: cgImage)
             image = Image(uiImage: uiImage)
+            processedImage = uiImage
         }
     }
     
+    func setFilter(newFilter: CIFilter) {
+        currentFilter = newFilter
+        loadImage()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
