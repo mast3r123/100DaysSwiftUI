@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @State private var image: Image?
     @State private var filterIntensity = 0.5
+    @State private var filterRadius = 0.5
     @State private var showingPicker = false
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
@@ -38,9 +39,11 @@ struct ContentView: View {
                     showingPicker = true
                 }
                 
-                HStack {
+                VStack {
                     Text("Intensity")
                     Slider(value: $filterIntensity)
+                    Text("Radius")
+                    Slider(value: $filterRadius)
                 }
                 .padding(.vertical)
                 
@@ -50,6 +53,7 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button("Save", action: saveImage)
+                        .disabled(image == nil)
                 }
             }
             .padding([.horizontal, .bottom])
@@ -58,17 +62,25 @@ struct ContentView: View {
             .onChange(of: filterIntensity) { _ in
                 applyProcessing()
             }
+            .onChange(of: filterRadius) { _ in
+                applyProcessing()
+            }
             .sheet(isPresented: $showingPicker) {
                 ImagePicker(image: $inputImage)
             }
             .confirmationDialog("Select a filter", isPresented: $showingFilterSheet) {
-                Button("Crystallize") { setFilter(newFilter: CIFilter.crystallize()) }
-                Button("Edges") { setFilter(newFilter: CIFilter.edges()) }
-                Button("Gaussian Blur") { setFilter(newFilter: CIFilter.gaussianBlur()) }
-                Button("Pixellate") { setFilter(newFilter: CIFilter.pixellate()) }
-                Button("Sepia Tone") { setFilter(newFilter: CIFilter.sepiaTone()) }
-                Button("Unsharp Mask") { setFilter(newFilter: CIFilter.unsharpMask()) }
-                Button("Vignette") { setFilter(newFilter: CIFilter.vignette()) }
+                Group {
+                    Button("Crystallize") { setFilter(newFilter: CIFilter.crystallize()) }
+                    Button("Edges") { setFilter(newFilter: CIFilter.edges()) }
+                    Button("Gaussian Blur") { setFilter(newFilter: CIFilter.gaussianBlur()) }
+                    Button("Pixellate") { setFilter(newFilter: CIFilter.pixellate()) }
+                    Button("Sepia Tone") { setFilter(newFilter: CIFilter.sepiaTone()) }
+                    Button("Unsharp Mask") { setFilter(newFilter: CIFilter.unsharpMask()) }
+                    Button("Vignette") { setFilter(newFilter: CIFilter.vignette()) }
+                    Button("Thermal") { setFilter(newFilter: CIFilter.thermal()) }
+                    Button("Comic") { setFilter(newFilter: CIFilter.comicEffect()) }
+                    Button("Kaleidoscope") { setFilter(newFilter: CIFilter.kaleidoscope()) }
+                }
                 Button("Cancel", role: .cancel) { }
             }
         }
@@ -78,7 +90,7 @@ struct ContentView: View {
         guard let inputImage = inputImage else {
             return
         }
-
+        
         let beginImage = CIImage(image: inputImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
@@ -88,7 +100,7 @@ struct ContentView: View {
         guard let processedImage = processedImage else {
             return
         }
-
+        
         let imageSaver = ImageSaver()
         
         
@@ -107,18 +119,20 @@ struct ContentView: View {
         
         let inputKeys = currentFilter.inputKeys
         
+        print(inputKeys)
+        
         if inputKeys.contains(kCIInputIntensityKey) {
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
         }
         
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(filterRadius * 200, forKey: kCIInputRadiusKey)
         }
-
+        
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
         }
-
+        
         
         guard let outputImage = currentFilter.outputImage else { return }
         if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
