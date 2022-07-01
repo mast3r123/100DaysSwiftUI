@@ -20,6 +20,7 @@
 		AF45D4AF285C08C2008310D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45D4AE285C08C2008310D0 /* User.swift */; };
 		AF45D4B3285C09CB008310D0 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45D4B2285C09CB008310D0 /* Friends.swift */; };
 		AF45D4B5285C11A6008310D0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45D4B4285C11A6008310D0 /* DetailView.swift */; };
+		AFCC15A0286B1C140007CFE2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC159F286B1C140007CFE2 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		AF45D4AE285C08C2008310D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF45D4B2285C09CB008310D0 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		AF45D4B4285C11A6008310D0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		AFCC159F286B1C140007CFE2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				AF45D4B4285C11A6008310D0 /* DetailView.swift */,
 				AF00EEEA285CD92300851154 /* Details.xcdatamodeld */,
 				AF00EEF5285CDC6D00851154 /* DataController.swift */,
+				AFCC159F286B1C140007CFE2 /* DataManager.swift */,
 			);
 			path = URLSessionChallenge;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF45D4A3285C080B008310D0 /* ContentView.swift in Sources */,
+				AFCC15A0286B1C140007CFE2 /* DataManager.swift in Sources */,
 				AF45D4A1285C080B008310D0 /* URLSessionChallengeApp.swift in Sources */,
 				AF00EEF6285CDC6D00851154 /* DataController.swift in Sources */,
 				AF45D4AF285C08C2008310D0 /* User.swift in Sources */,
