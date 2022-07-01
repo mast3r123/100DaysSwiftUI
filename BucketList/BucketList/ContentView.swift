@@ -5,32 +5,38 @@
 //  Created by master on 6/30/22.
 //
 
+import MapKit
 import SwiftUI
 
-struct User: Identifiable, Comparable {
-    
+struct Location: Identifiable {
     let id = UUID()
-    let firstName: String
-    let lastName: String
-    
-    static func <(lhs: User, rhs: User) -> Bool {
-        lhs.lastName < rhs.lastName
-    }
+    let name: String
+    let coordinate: CLLocationCoordinate2D
 }
 
 struct ContentView: View {
     
-    let values = [1, 5, 3, 6, 2, 9].sorted()
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     
-    let users = [
-        User(firstName: "Arnold", lastName: "Rima"),
-        User(firstName: "Abdul", lastName: "Kalam"),
-        User(firstName: "Mark", lastName: "Zuckerberg")
-    ].sorted()
+    let location = [
+        Location(name: "Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
+        Location(name: "Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
+    ]
     
     var body: some View {
-        List(users) { user in
-            Text("\(user.firstName) \(user.lastName)")
+        NavigationView {
+            Map(coordinateRegion: $mapRegion, annotationItems: location) { location in
+                MapAnnotation(coordinate: location.coordinate) {
+                    NavigationLink {
+                        Text(location.name)
+                    } label: {
+                        Circle()
+                            .stroke(.red, lineWidth: 3)
+                            .frame(width: 44, height: 44)
+                    }
+                }
+            }
+            .navigationTitle("London Explorer")
         }
     }
 }
