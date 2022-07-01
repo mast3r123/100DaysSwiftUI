@@ -7,6 +7,7 @@
 
 import MapKit
 import SwiftUI
+import LocalAuthentication
 
 struct Location: Identifiable {
     let id = UUID()
@@ -16,6 +17,8 @@ struct Location: Identifiable {
 
 struct ContentView: View {
     
+    @State private var isUnlocked = false
+    
     @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     
     let location = [
@@ -23,21 +26,32 @@ struct ContentView: View {
         Location(name: "Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
     ]
     
-    var body: some View {
-        NavigationView {
-            Map(coordinateRegion: $mapRegion, annotationItems: location) { location in
-                MapAnnotation(coordinate: location.coordinate) {
-                    NavigationLink {
-                        Text(location.name)
-                    } label: {
-                        Circle()
-                            .stroke(.red, lineWidth: 3)
-                            .frame(width: 44, height: 44)
-                    }
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to unlock your data"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                if success {
+                    isUnlocked = true
+                } else {
+                    
                 }
             }
-            .navigationTitle("London Explorer")
+        } else {
+            
         }
+    }
+    
+    var body: some View {
+        VStack {
+            if isUnlocked {
+                Text("Unlocked")
+            } else {
+                Text("Locked")
+            }
+        }.onAppear(perform: authenticate)
     }
 }
 
