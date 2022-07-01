@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)) {
+                MapAnnotation(coordinate: location.coordinate) {
                     VStack {
                         Image(systemName: "star.circle")
                             .resizable()
