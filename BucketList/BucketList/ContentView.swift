@@ -18,12 +18,11 @@ struct ContentView: View {
                 Map(coordinateRegion: $viewModel.mapRegion, annotationItems: viewModel.locations) { location in
                     MapAnnotation(coordinate: location.coordinate) {
                         VStack {
-                            Image(systemName: "star.circle")
+                            Image(systemName: "mappin")
                                 .resizable()
                                 .foregroundColor(.red)
-                                .frame(width: 44, height:  44)
-                                .background(.white)
-                                .clipShape(Circle())
+                                .frame(width: 10, height:  30)
+                                .background(.clear)
                             
                             Text(location.name)
                                 .fixedSize()
@@ -45,18 +44,16 @@ struct ContentView: View {
                     
                     HStack {
                         Spacer()
-                        
                         Button {
                             viewModel.addLocation()
                         } label: {
                             Image(systemName: "plus")
+                                .padding()
+                                .background(.black.opacity(0.75))
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .clipShape(Circle())
                         }
-                        .padding()
-                        .background(.black.opacity(0.75))
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .clipShape(Circle())
-                        .padding(.trailing)
                     }
                 }
             }
