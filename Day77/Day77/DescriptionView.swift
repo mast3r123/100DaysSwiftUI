@@ -24,6 +24,7 @@ struct DescriptionView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+                Text(imageData.wrappedName).font(.title).bold()
                 selectedImage
                     .resizable()
                     .scaledToFit()
@@ -31,9 +32,11 @@ struct DescriptionView: View {
                 Map(coordinateRegion: $mapRegion, annotationItems: locations) {
                     MapPin(coordinate: $0.coordinate)
                 }
+                .frame(maxHeight: 200)
                 .cornerRadius(10)
+                Spacer()
             }.padding()
-        }.navigationTitle(imageData.wrappedName).navigationBarTitleDisplayMode(.inline)
+        }.navigationTitle("Image Details").navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: imageData.latitude, longitude: imageData.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
                 locations = [

@@ -21,31 +21,41 @@ struct SaveImageView: View {
     let locationFetcher = LocationFetcher()
     @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
     @State private var location: CLLocationCoordinate2D?
+    @Binding var isPresented: Bool
     
     var body: some View {
-        VStack(spacing: 20) {
-            ZStack {
-                if displayImage != nil {
-                    displayImage?
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(10)
-                } else {
-                    Rectangle()
-                        .fill(.secondary)
-                        .frame(height: 300)
-                        .cornerRadius(10)
-                    Button {
-                        showingPicker = true
-                    } label: {
-                        Image(systemName: "photo.fill")
+        List {
+            Section(header: Text("Image Selection")) {
+                ZStack {
+                    if displayImage != nil {
+                        displayImage?
                             .resizable()
-                            .frame(width: 60, height: 50, alignment: .center)
-                    }.buttonStyle(.plain)
-                }
+                            .scaledToFit()
+                            .cornerRadius(10)
+                    } else {
+                        Rectangle()
+                            .fill(.secondary)
+                            .frame(height: 300)
+                            .cornerRadius(10)
+                        Button {
+                            showingPicker = true
+                        } label: {
+                            HStack {
+                                Image(systemName: "photo.fill")
+                                    .resizable()
+                                    .frame(width: 60, height: 50, alignment: .center)
+                                Text("Add Image")
+                            }.foregroundColor(.white)
+                        }.buttonStyle(.plain)
+                    }
+                }.padding([.top, .bottom])
             }
-            TextField("Enter image description", text: $imageName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            Section(header: Text("Image Description")) {
+                TextField("Enter image description", text: $imageName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            
             
             if showingButton {
                 Button("Add location") {
@@ -55,22 +65,25 @@ struct SaveImageView: View {
                         mapRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
                     }
                 }.font(.headline.bold())
-                Spacer()
             } else {
-                Map(coordinateRegion: $mapRegion, showsUserLocation: true)
-                    .cornerRadius(10)
+                Section(header: Text("Current Location")) {
+                    Map(coordinateRegion: $mapRegion, showsUserLocation: true)
+                        .cornerRadius(10)
+                        .frame(minHeight: 200)
+                        .padding([.top, .bottom])
+                }
             }
             
             Button("Save") {
                 tappedSave()
             }
+            .frame(maxWidth: .infinity)
             .padding()
             .foregroundColor(.white)
             .background(.blue)
             .font(.title3.bold())
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         }
-        .padding()
         .alert("Please enter a valid name", isPresented: $showingAlert) {}
         
         .onChange(of: image, perform: { _ in
@@ -123,11 +136,12 @@ struct SaveImageView: View {
             print(error.localizedDescription)
             return
         }
+        isPresented = false
     }
 }
 
-struct SaveImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        SaveImageView()
-    }
-}
+//struct SaveImageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SaveImageView()
+//    }
+//}

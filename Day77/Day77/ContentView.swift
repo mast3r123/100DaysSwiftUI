@@ -27,6 +27,7 @@ struct ContentView: View {
                                     .frame(width: 60, height: 60)
                                     .cornerRadius(10)
                                 Text(img.wrappedName)
+                                    .font(.title3.bold())
                             }
                         }
                     }
@@ -41,7 +42,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showingSave) {
-                SaveImageView()
+                SaveImageView(isPresented: $showingSave)
             }
         }
     }
