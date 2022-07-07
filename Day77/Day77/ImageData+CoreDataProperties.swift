@@ -18,14 +18,13 @@ extension ImageData {
 
     @NSManaged public var name: String?
     @NSManaged public var id: UUID?
-
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
+    
     public var wrappedName: String {
         name ?? "Unknown"
     }
-    
-    public var wrappedId: UUID {
-        id ?? UUID()
-    }
+
 }
 
 extension ImageData : Identifiable {

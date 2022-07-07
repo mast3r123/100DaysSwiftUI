@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct SaveImageView: View {
     
     @State private var showingPicker = false
     @State private var imageName = ""
     @State private var showingAlert = false
+    @State private var showingButton = true
     @State private var image: UIImage?
     @State private var displayImage: Image?
     let rootPath = FileManager.documentsDirectory
     @Environment (\.managedObjectContext) var moc
+    let locationFetcher = LocationFetcher()
+    @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+    @State private var location: CLLocationCoordinate2D?
     
     var body: some View {
         VStack(spacing: 20) {
@@ -23,25 +28,39 @@ struct SaveImageView: View {
                 if displayImage != nil {
                     displayImage?
                         .resizable()
-                        .aspectRatio(1.0, contentMode: .fit)
+                        .scaledToFit()
                         .cornerRadius(10)
                 } else {
                     Rectangle()
                         .fill(.secondary)
-                        .frame(height: 400)
+                        .frame(height: 300)
                         .cornerRadius(10)
                     Button {
-                         showingPicker = true
+                        showingPicker = true
                     } label: {
                         Image(systemName: "photo.fill")
                             .resizable()
-                            .frame(width: 70, height: 50, alignment: .center)
+                            .frame(width: 60, height: 50, alignment: .center)
                     }.buttonStyle(.plain)
                 }
             }
             TextField("Enter image description", text: $imageName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            Spacer()
+            
+            if showingButton {
+                Button("Add location") {
+                    if let location = self.locationFetcher.lastKnownLocation {
+                        self.location = location
+                        showingButton = false
+                        mapRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+                    }
+                }.font(.headline.bold())
+                Spacer()
+            } else {
+                Map(coordinateRegion: $mapRegion, showsUserLocation: true)
+                    .cornerRadius(10)
+            }
+            
             Button("Save") {
                 tappedSave()
             }
@@ -52,15 +71,16 @@ struct SaveImageView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         }
         .padding()
-        .alert("Please enter a valid name", isPresented: $showingAlert) {
-            
-        }
+        .alert("Please enter a valid name", isPresented: $showingAlert) {}
         
         .onChange(of: image, perform: { _ in
             importPhoto()
         })
         .sheet(isPresented: $showingPicker) {
             ImagePicker(image: $image)
+        }
+        .onAppear {
+            locationFetcher.start()
         }
     }
     
@@ -92,6 +112,10 @@ struct SaveImageView: View {
         let img = ImageData(context: moc)
         img.id = id
         img.name = imageName
+        if let location = location {
+            img.longitude = location.longitude
+            img.latitude = location.latitude
+        }
         
         do {
             try moc.save()

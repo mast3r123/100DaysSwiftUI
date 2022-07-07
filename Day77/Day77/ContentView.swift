@@ -19,8 +19,15 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(images, id: \.self) { img in
-                        NavigationLink(destination: DescriptionView(imageData: img)) {
-                            Text(img.wrappedName)
+                        let fetchedImage = getImage(id: img.id)
+                        NavigationLink(destination: DescriptionView(imageData: img, selectedImage: fetchedImage)) {
+                            HStack {
+                                fetchedImage
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                                    .cornerRadius(10)
+                                Text(img.wrappedName)
+                            }
                         }
                     }
                 }
@@ -37,6 +44,14 @@ struct ContentView: View {
                 SaveImageView()
             }
         }
+    }
+    
+    func getImage(id: UUID?) -> Image {
+        if let data = try? Data(contentsOf: FileManager.documentsDirectory.appendingPathComponent(String(describing: id!))),
+           let loaded = UIImage(data: data) {
+            return Image(uiImage: loaded)
+        }
+        return Image(systemName: "")
     }
 
 }

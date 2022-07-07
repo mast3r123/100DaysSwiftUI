@@ -15,10 +15,11 @@
 		AF65D14F28762E490096DD49 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D14E28762E490096DD49 /* FileManager-DocumentsDirectory.swift */; };
 		AF65D1512876305A0096DD49 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D1502876305A0096DD49 /* DescriptionView.swift */; };
 		AF65D156287630C20096DD49 /* Day77.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF65D154287630C20096DD49 /* Day77.xcdatamodeld */; };
-		AF65D161287631750096DD49 /* ImageData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D15F287631750096DD49 /* ImageData+CoreDataClass.swift */; };
-		AF65D162287631750096DD49 /* ImageData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D160287631750096DD49 /* ImageData+CoreDataProperties.swift */; };
 		AF65D1642876319A0096DD49 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D1632876319A0096DD49 /* DataController.swift */; };
 		AF65D16828763B1D0096DD49 /* SaveImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D16728763B1D0096DD49 /* SaveImageView.swift */; };
+		AF65D16D2876621A0096DD49 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D16C2876621A0096DD49 /* LocationFetcher.swift */; };
+		AF65D174287674360096DD49 /* ImageData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D172287674360096DD49 /* ImageData+CoreDataClass.swift */; };
+		AF65D175287674360096DD49 /* ImageData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65D173287674360096DD49 /* ImageData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +32,12 @@
 		AF65D14E28762E490096DD49 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		AF65D1502876305A0096DD49 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		AF65D155287630C20096DD49 /* Image.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Image.xcdatamodel; sourceTree = "<group>"; };
-		AF65D15F287631750096DD49 /* ImageData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AF65D160287631750096DD49 /* ImageData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AF65D1632876319A0096DD49 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		AF65D16728763B1D0096DD49 /* SaveImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImageView.swift; sourceTree = "<group>"; };
+		AF65D16928765A020096DD49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AF65D16C2876621A0096DD49 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		AF65D172287674360096DD49 /* ImageData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AF65D173287674360096DD49 /* ImageData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +70,9 @@
 		AF65D13D287624110096DD49 /* Day77 */ = {
 			isa = PBXGroup;
 			children = (
-				AF65D15F287631750096DD49 /* ImageData+CoreDataClass.swift */,
-				AF65D160287631750096DD49 /* ImageData+CoreDataProperties.swift */,
+				AF65D172287674360096DD49 /* ImageData+CoreDataClass.swift */,
+				AF65D173287674360096DD49 /* ImageData+CoreDataProperties.swift */,
+				AF65D16928765A020096DD49 /* Info.plist */,
 				AF65D13E287624110096DD49 /* Day77App.swift */,
 				AF65D140287624110096DD49 /* ContentView.swift */,
 				AF65D142287624120096DD49 /* Assets.xcassets */,
@@ -79,6 +83,7 @@
 				AF65D154287630C20096DD49 /* Day77.xcdatamodeld */,
 				AF65D1632876319A0096DD49 /* DataController.swift */,
 				AF65D16728763B1D0096DD49 /* SaveImageView.swift */,
+				AF65D16C2876621A0096DD49 /* LocationFetcher.swift */,
 			);
 			path = Day77;
 			sourceTree = "<group>";
@@ -161,11 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF65D175287674360096DD49 /* ImageData+CoreDataProperties.swift in Sources */,
 				AF65D14D2876242A0096DD49 /* ImagePicker.swift in Sources */,
-				AF65D162287631750096DD49 /* ImageData+CoreDataProperties.swift in Sources */,
+				AF65D174287674360096DD49 /* ImageData+CoreDataClass.swift in Sources */,
 				AF65D141287624110096DD49 /* ContentView.swift in Sources */,
 				AF65D16828763B1D0096DD49 /* SaveImageView.swift in Sources */,
-				AF65D161287631750096DD49 /* ImageData+CoreDataClass.swift in Sources */,
+				AF65D16D2876621A0096DD49 /* LocationFetcher.swift in Sources */,
 				AF65D1642876319A0096DD49 /* DataController.swift in Sources */,
 				AF65D156287630C20096DD49 /* Day77.xcdatamodeld in Sources */,
 				AF65D14F28762E490096DD49 /* FileManager-DocumentsDirectory.swift in Sources */,
@@ -301,6 +307,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Day77/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Day77/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To determine your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +338,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Day77/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Day77/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To determine your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
