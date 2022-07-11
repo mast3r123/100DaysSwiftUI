@@ -7,36 +7,36 @@
 
 import SwiftUI
 
-@MainActor class User: ObservableObject {
-    @Published var name = "Taylor Swift"
-}
 
-struct EditView: View {
-    @EnvironmentObject var user: User
-    
-    var body: some View {
-        TextField("Name", text: $user.name)
-    }
-}
-
-struct DisplayView: View {
-    @EnvironmentObject var user: User
-    
-    var body: some View {
-        Text(user.name)
-    }
-}
 
 struct ContentView: View {
     
-    @StateObject private var user = User()
+    @State private var output = ""
     
     var body: some View {
-        VStack {
-            EditView()
-            DisplayView()
+        Text(output)
+            .task {
+                await fetchRedings()
+            }
+    }
+    
+    func fetchRedings() async {
+        let fetchTask = Task { () -> String in
+            let url = URL(string: "https://hws.dev/readings.json")!
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let readings = try JSONDecoder().decode([Double].self, from: data)
+            return "Found \(readings.count)"
         }
-        .environmentObject(user)
+        
+        let result = await fetchTask.result
+        
+        switch result {
+        case .success(let str):
+            output = str
+            
+        case .failure(let error):
+            output = "Download error: \(error.localizedDescription)"
+        }
     }
 }
 
