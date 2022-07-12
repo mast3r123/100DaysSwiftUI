@@ -6,36 +6,29 @@
 //
 
 import SwiftUI
-
-
+import UserNotifications
 
 struct ContentView: View {
     
-    @State private var output = ""
-    
     var body: some View {
-        Text(output)
-            .task {
-                await fetchRedings()
+        VStack {
+            Button("Request Permission") {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { suceess, error in
+                    
+                }
             }
-    }
-    
-    func fetchRedings() async {
-        let fetchTask = Task { () -> String in
-            let url = URL(string: "https://hws.dev/readings.json")!
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let readings = try JSONDecoder().decode([Double].self, from: data)
-            return "Found \(readings.count)"
-        }
-        
-        let result = await fetchTask.result
-        
-        switch result {
-        case .success(let str):
-            output = str
             
-        case .failure(let error):
-            output = "Download error: \(error.localizedDescription)"
+            Button("Schedule Notification") {
+                let content = UNMutableNotificationContent()
+                content.title = "Dogs"
+                content.subtitle = "Dogs look hungry"
+                content.sound = UNNotificationSound.default
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request)
+            }
         }
     }
 }
