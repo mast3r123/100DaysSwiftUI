@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1298DB287F35FB00F7B3F3 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1298DA287F35FB00F7B3F3 /* ProspectsView.swift */; };
+		AF1298DD287F360000F7B3F3 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1298DC287F360000F7B3F3 /* MeView.swift */; };
+		AF1298DF287F393300F7B3F3 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1298DE287F393300F7B3F3 /* Prospect.swift */; };
 		AFA46EA12879FB0F005ACD43 /* HotProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA46EA02879FB0F005ACD43 /* HotProspectsApp.swift */; };
 		AFA46EA32879FB0F005ACD43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA46EA22879FB0F005ACD43 /* ContentView.swift */; };
 		AFA46EA52879FB11005ACD43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA46EA42879FB11005ACD43 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF1298DA287F35FB00F7B3F3 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
+		AF1298DC287F360000F7B3F3 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		AF1298DE287F393300F7B3F3 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 		AFA46E9D2879FB0F005ACD43 /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA46EA02879FB0F005ACD43 /* HotProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProspectsApp.swift; sourceTree = "<group>"; };
 		AFA46EA22879FB0F005ACD43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 			children = (
 				AFA46EA02879FB0F005ACD43 /* HotProspectsApp.swift */,
 				AFA46EA22879FB0F005ACD43 /* ContentView.swift */,
+				AF1298DE287F393300F7B3F3 /* Prospect.swift */,
+				AF1298DA287F35FB00F7B3F3 /* ProspectsView.swift */,
+				AF1298DC287F360000F7B3F3 /* MeView.swift */,
 				AFA46EA42879FB11005ACD43 /* Assets.xcassets */,
 				AFA46EA62879FB11005ACD43 /* Preview Content */,
 			);
@@ -83,6 +92,8 @@
 			dependencies = (
 			);
 			name = HotProspects;
+			packageProductDependencies = (
+			);
 			productName = HotProspects;
 			productReference = AFA46E9D2879FB0F005ACD43 /* HotProspects.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,8 @@
 				Base,
 			);
 			mainGroup = AFA46E942879FB0F005ACD43;
+			packageReferences = (
+			);
 			productRefGroup = AFA46E9E2879FB0F005ACD43 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF1298DD287F360000F7B3F3 /* MeView.swift in Sources */,
+				AF1298DF287F393300F7B3F3 /* Prospect.swift in Sources */,
+				AF1298DB287F35FB00F7B3F3 /* ProspectsView.swift in Sources */,
 				AFA46EA32879FB0F005ACD43 /* ContentView.swift in Sources */,
 				AFA46EA12879FB0F005ACD43 /* HotProspectsApp.swift in Sources */,
 			);
