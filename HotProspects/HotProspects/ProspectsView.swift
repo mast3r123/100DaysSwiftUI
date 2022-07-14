@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct ProspectsView: View {
     
@@ -14,6 +15,7 @@ struct ProspectsView: View {
     }
     
     @EnvironmentObject var prospects: Prospects
+    @State private var isShowingScanner = false
     
     let filter: FilterType
     
@@ -27,18 +29,35 @@ struct ProspectsView: View {
                         Text(propspect.emailAddress)
                             .foregroundColor(.secondary)
                     }
+                    .swipeActions {
+                        if propspect.isContacted {
+                            Button {
+                                prospects.toggle(propspect)
+                            } label: {
+                                Label("", systemImage: "person.crop.circle.fill.badge.xmark")
+                            }
+                            .tint(.blue)
+                        } else {
+                            Button {
+                                prospects.toggle(propspect)
+                            } label: {
+                                Label("", systemImage: "person.crop.circle.fill.badge.checkmark")
+                            }
+                            .tint(.green)
+                        }
+                    }
                 }
             }
             .navigationTitle(title)
             .toolbar {
                 Button {
-                    let prospect = Prospect()
-                    prospect.name = "Master"
-                    prospect.emailAddress = "sample@gmail.com"
-                    prospects.people.append(prospect)
+                    isShowingScanner = true
                 } label: {
                     Label("Scan", systemImage: "qrcode.viewfinder")
                 }
+            }
+            .sheet(isPresented: $isShowingScanner) {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "Master\nsample@gmail.com", completion: handleScan)
             }
         }
     }
@@ -62,6 +81,23 @@ struct ProspectsView: View {
             return prospects.people.filter{ $0.isContacted }
         case .uncontacted:
             return prospects.people.filter{ !$0.isContacted }
+        }
+    }
+    
+    func handleScan(result: Result<ScanResult, ScanError>) {
+        isShowingScanner = false
+        switch result {
+        case .success(let result):
+            let details = result.string.components(separatedBy: "\n")
+            guard details.count == 2 else { return }
+            let prospect = Prospect()
+            prospect.name = details[0]
+            prospect.emailAddress = details[1]
+            prospects.people.append(prospect)
+            
+        case .failure(let error):
+            print(error.localizedDescription)
+            
         }
     }
 }
