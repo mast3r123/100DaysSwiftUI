@@ -94,6 +94,7 @@ struct ProspectsView: View {
             prospect.name = details[0]
             prospect.emailAddress = details[1]
             prospects.people.append(prospect)
+            prospects.save()
             
         case .failure(let error):
             print(error.localizedDescription)
