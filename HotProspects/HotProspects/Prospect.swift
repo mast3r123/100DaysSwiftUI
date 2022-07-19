@@ -12,26 +12,44 @@ class Prospect: Identifiable, Codable {
     var name = "Anonymous"
     var emailAddress = ""
     fileprivate(set) var isContacted = false
+    var dateAdded = Date.now
 }
 
 @MainActor class Prospects: ObservableObject {
+    
     @Published private(set) var people: [Prospect]
+    
+    var currentSorting = "By Names"
     
     let saveKey = "SavedData"
     
     init() {
-        if let data = UserDefaults.standard.data(forKey: saveKey) {
-            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
-                people = decoded
-                return
-            }
+        do {
+            let fileURL = try FileManager.default
+                .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                .appendingPathComponent("data.json")
+            
+            let data = try Data(contentsOf: fileURL)
+            people = try JSONDecoder().decode([Prospect].self, from: data)
+            sort(sortBy: currentSorting)
+            return
+        } catch {
+            print("error reading data")
+            people = []
         }
-        people = []
     }
     
     private func save() {
-        if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: saveKey)
+        do {
+            let fileURL = try FileManager.default
+                .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("data.json")
+            
+            try JSONEncoder()
+                .encode(people)
+                .write(to: fileURL)
+        } catch {
+            print("error writing data")
         }
     }
     
@@ -41,8 +59,18 @@ class Prospect: Identifiable, Codable {
         save()
     }
     
+    func sort(sortBy: String) {
+        currentSorting = sortBy
+        if sortBy == "By Names" {
+            people.sort{ $0.name < $1.name }
+        } else {
+            people.sort{ $0.dateAdded > $1.dateAdded }
+        }
+    }
+    
     func add(prospect: Prospect) {
         people.append(prospect)
+        sort(sortBy: currentSorting)
         save()
     }
 }
