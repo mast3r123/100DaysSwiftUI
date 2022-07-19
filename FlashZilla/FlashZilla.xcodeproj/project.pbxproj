@@ -7,76 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF1298DB287F35FB00F7B3F3 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1298DA287F35FB00F7B3F3 /* ProspectsView.swift */; };
-		AF1298DD287F360000F7B3F3 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1298DC287F360000F7B3F3 /* MeView.swift */; };
-		AF1298DF287F393300F7B3F3 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1298DE287F393300F7B3F3 /* Prospect.swift */; };
-		AFA46EA12879FB0F005ACD43 /* HotProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA46EA02879FB0F005ACD43 /* HotProspectsApp.swift */; };
-		AFA46EA32879FB0F005ACD43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA46EA22879FB0F005ACD43 /* ContentView.swift */; };
-		AFA46EA52879FB11005ACD43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA46EA42879FB11005ACD43 /* Assets.xcassets */; };
-		AFA46EA82879FB11005ACD43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA46EA72879FB11005ACD43 /* Preview Assets.xcassets */; };
-		AFD478B12880B94F007B870F /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AFD478B02880B94F007B870F /* CodeScanner */; };
-		AFD4C5AD2885C668007FA15E /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD4C5AC2885C668007FA15E /* ImageSaver.swift */; };
+		AF564B8B28870A5900718055 /* FlashZillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF564B8A28870A5900718055 /* FlashZillaApp.swift */; };
+		AF564B8D28870A5900718055 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF564B8C28870A5900718055 /* ContentView.swift */; };
+		AF564B8F28870A5A00718055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF564B8E28870A5A00718055 /* Assets.xcassets */; };
+		AF564B9228870A5A00718055 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF564B9128870A5A00718055 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF1298DA287F35FB00F7B3F3 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
-		AF1298DC287F360000F7B3F3 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
-		AF1298DE287F393300F7B3F3 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
-		AFA46E9D2879FB0F005ACD43 /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFA46EA02879FB0F005ACD43 /* HotProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProspectsApp.swift; sourceTree = "<group>"; };
-		AFA46EA22879FB0F005ACD43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AFA46EA42879FB11005ACD43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFA46EA72879FB11005ACD43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AFD4C5AC2885C668007FA15E /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		AF564B8728870A5900718055 /* FlashZilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashZilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF564B8A28870A5900718055 /* FlashZillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashZillaApp.swift; sourceTree = "<group>"; };
+		AF564B8C28870A5900718055 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AF564B8E28870A5A00718055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF564B9128870A5A00718055 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AFA46E9A2879FB0F005ACD43 /* Frameworks */ = {
+		AF564B8428870A5900718055 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD478B12880B94F007B870F /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AFA46E942879FB0F005ACD43 = {
+		AF564B7E28870A5900718055 = {
 			isa = PBXGroup;
 			children = (
-				AFA46E9F2879FB0F005ACD43 /* HotProspects */,
-				AFA46E9E2879FB0F005ACD43 /* Products */,
+				AF564B8928870A5900718055 /* FlashZilla */,
+				AF564B8828870A5900718055 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AFA46E9E2879FB0F005ACD43 /* Products */ = {
+		AF564B8828870A5900718055 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFA46E9D2879FB0F005ACD43 /* HotProspects.app */,
+				AF564B8728870A5900718055 /* FlashZilla.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFA46E9F2879FB0F005ACD43 /* HotProspects */ = {
+		AF564B8928870A5900718055 /* FlashZilla */ = {
 			isa = PBXGroup;
 			children = (
-				AFA46EA02879FB0F005ACD43 /* HotProspectsApp.swift */,
-				AFA46EA22879FB0F005ACD43 /* ContentView.swift */,
-				AF1298DE287F393300F7B3F3 /* Prospect.swift */,
-				AF1298DA287F35FB00F7B3F3 /* ProspectsView.swift */,
-				AF1298DC287F360000F7B3F3 /* MeView.swift */,
-				AFD4C5AC2885C668007FA15E /* ImageSaver.swift */,
-				AFA46EA42879FB11005ACD43 /* Assets.xcassets */,
-				AFA46EA62879FB11005ACD43 /* Preview Content */,
+				AF564B8A28870A5900718055 /* FlashZillaApp.swift */,
+				AF564B8C28870A5900718055 /* ContentView.swift */,
+				AF564B8E28870A5A00718055 /* Assets.xcassets */,
+				AF564B9028870A5A00718055 /* Preview Content */,
 			);
-			path = HotProspects;
+			path = FlashZilla;
 			sourceTree = "<group>";
 		};
-		AFA46EA62879FB11005ACD43 /* Preview Content */ = {
+		AF564B9028870A5A00718055 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AFA46EA72879FB11005ACD43 /* Preview Assets.xcassets */,
+				AF564B9128870A5A00718055 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -84,42 +70,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFA46E9C2879FB0F005ACD43 /* HotProspects */ = {
+		AF564B8628870A5900718055 /* FlashZilla */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFA46EAB2879FB11005ACD43 /* Build configuration list for PBXNativeTarget "HotProspects" */;
+			buildConfigurationList = AF564B9528870A5A00718055 /* Build configuration list for PBXNativeTarget "FlashZilla" */;
 			buildPhases = (
-				AFA46E992879FB0F005ACD43 /* Sources */,
-				AFA46E9A2879FB0F005ACD43 /* Frameworks */,
-				AFA46E9B2879FB0F005ACD43 /* Resources */,
+				AF564B8328870A5900718055 /* Sources */,
+				AF564B8428870A5900718055 /* Frameworks */,
+				AF564B8528870A5900718055 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HotProspects;
-			packageProductDependencies = (
-				AFD478B02880B94F007B870F /* CodeScanner */,
-			);
-			productName = HotProspects;
-			productReference = AFA46E9D2879FB0F005ACD43 /* HotProspects.app */;
+			name = FlashZilla;
+			productName = FlashZilla;
+			productReference = AF564B8728870A5900718055 /* FlashZilla.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AFA46E952879FB0F005ACD43 /* Project object */ = {
+		AF564B7F28870A5900718055 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					AFA46E9C2879FB0F005ACD43 = {
+					AF564B8628870A5900718055 = {
 						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
-			buildConfigurationList = AFA46E982879FB0F005ACD43 /* Build configuration list for PBXProject "HotProspects" */;
+			buildConfigurationList = AF564B8228870A5900718055 /* Build configuration list for PBXProject "FlashZilla" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,49 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = AFA46E942879FB0F005ACD43;
-			packageReferences = (
-				AFD478AF2880B94F007B870F /* XCRemoteSwiftPackageReference "codescanner" */,
-			);
-			productRefGroup = AFA46E9E2879FB0F005ACD43 /* Products */;
+			mainGroup = AF564B7E28870A5900718055;
+			productRefGroup = AF564B8828870A5900718055 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFA46E9C2879FB0F005ACD43 /* HotProspects */,
+				AF564B8628870A5900718055 /* FlashZilla */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AFA46E9B2879FB0F005ACD43 /* Resources */ = {
+		AF564B8528870A5900718055 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA46EA82879FB11005ACD43 /* Preview Assets.xcassets in Resources */,
-				AFA46EA52879FB11005ACD43 /* Assets.xcassets in Resources */,
+				AF564B9228870A5A00718055 /* Preview Assets.xcassets in Resources */,
+				AF564B8F28870A5A00718055 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AFA46E992879FB0F005ACD43 /* Sources */ = {
+		AF564B8328870A5900718055 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF1298DD287F360000F7B3F3 /* MeView.swift in Sources */,
-				AFD4C5AD2885C668007FA15E /* ImageSaver.swift in Sources */,
-				AF1298DF287F393300F7B3F3 /* Prospect.swift in Sources */,
-				AF1298DB287F35FB00F7B3F3 /* ProspectsView.swift in Sources */,
-				AFA46EA32879FB0F005ACD43 /* ContentView.swift in Sources */,
-				AFA46EA12879FB0F005ACD43 /* HotProspectsApp.swift in Sources */,
+				AF564B8D28870A5900718055 /* ContentView.swift in Sources */,
+				AF564B8B28870A5900718055 /* FlashZillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AFA46EA92879FB11005ACD43 /* Debug */ = {
+		AF564B9328870A5A00718055 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +205,7 @@
 			};
 			name = Debug;
 		};
-		AFA46EAA2879FB11005ACD43 /* Release */ = {
+		AF564B9428870A5A00718055 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -283,19 +259,16 @@
 			};
 			name = Release;
 		};
-		AFA46EAC2879FB11005ACD43 /* Debug */ = {
+		AF564B9628870A5A00718055 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HotProspects/Preview Content\"";
-				DEVELOPMENT_TEAM = V582B7LVZ2;
+				DEVELOPMENT_ASSET_PATHS = "\"FlashZilla/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To scan the QR Code";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "For saving image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -306,7 +279,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = master.HotProspects;
+				PRODUCT_BUNDLE_IDENTIFIER = master.FlashZilla;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -314,19 +287,16 @@
 			};
 			name = Debug;
 		};
-		AFA46EAD2879FB11005ACD43 /* Release */ = {
+		AF564B9728870A5A00718055 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HotProspects/Preview Content\"";
-				DEVELOPMENT_TEAM = V582B7LVZ2;
+				DEVELOPMENT_ASSET_PATHS = "\"FlashZilla/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To scan the QR Code";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "For saving image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -337,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = master.HotProspects;
+				PRODUCT_BUNDLE_IDENTIFIER = master.FlashZilla;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -348,44 +318,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AFA46E982879FB0F005ACD43 /* Build configuration list for PBXProject "HotProspects" */ = {
+		AF564B8228870A5900718055 /* Build configuration list for PBXProject "FlashZilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFA46EA92879FB11005ACD43 /* Debug */,
-				AFA46EAA2879FB11005ACD43 /* Release */,
+				AF564B9328870A5A00718055 /* Debug */,
+				AF564B9428870A5A00718055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFA46EAB2879FB11005ACD43 /* Build configuration list for PBXNativeTarget "HotProspects" */ = {
+		AF564B9528870A5A00718055 /* Build configuration list for PBXNativeTarget "FlashZilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFA46EAC2879FB11005ACD43 /* Debug */,
-				AFA46EAD2879FB11005ACD43 /* Release */,
+				AF564B9628870A5A00718055 /* Debug */,
+				AF564B9728870A5A00718055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AFD478AF2880B94F007B870F /* XCRemoteSwiftPackageReference "codescanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/codescanner";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AFD478B02880B94F007B870F /* CodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AFD478AF2880B94F007B870F /* XCRemoteSwiftPackageReference "codescanner" */;
-			productName = CodeScanner;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AFA46E952879FB0F005ACD43 /* Project object */;
+	rootObject = AF564B7F28870A5900718055 /* Project object */;
 }
